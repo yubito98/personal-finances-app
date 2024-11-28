@@ -1,8 +1,12 @@
 import TransactionForm from "../TransactionForm/TransactionForm";
 
+
 function TransactionModal({transactions}){
+
+ 
+
     return(
-        <div>
+        <div className="mt-5 row">
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add Transaction
             </button>
