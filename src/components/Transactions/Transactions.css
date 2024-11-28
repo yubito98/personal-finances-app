@@ -5,3 +5,7 @@
 .Income{
     color: #198754 !important;
 }
+
+td{
+    vertical-align: middle;
+}
