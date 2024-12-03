@@ -1,18 +1,22 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import EditTransactionModal from "../EditTransactionModal/EditTransactionModal";
 import './Transactions.css'
 
 
 function Transactions({transactions}){
+
+    const [transactionId, setTransactionId] = useState(0)
 
     const deleteTransaction = async (event) =>{
         const response = await axios.delete(`http://localhost:8080/transactions/${event.target.id}`);
         const data = response.data;
         console.log(data)
     }
-    
+
 
     return(
+        <>
         <table className="table table-striped">
             <thead>
                 <tr>
@@ -41,8 +45,8 @@ function Transactions({transactions}){
                         }
                         </td>
                         <td>
-                            <span className="btn btn-secondary">Edit</span>
-                            <span className="btn btn-danger" style={{cursor: "pointer"}} id={index} onClick={deleteTransaction}>X</span>
+                            <button onClick={() => {setTransactionId(index)}} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTransaction">Edit</button>
+                            <span className="btn btn-danger" id={index} onClick={deleteTransaction}>X</span>
                         </td>
                     </tr>
                     
@@ -51,6 +55,8 @@ function Transactions({transactions}){
             }
             </tbody>
         </table>
+        <EditTransactionModal transactionId={transactionId}/>
+        </>
     )
 }
 

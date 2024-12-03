@@ -1,11 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './App.css';
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import Transactions from './components/Transactions/Transactions';
 import TransactionModal from './components/TransactionModal/TransactionModal';
 import Filters from './components/Filters/Filters';
-import React, {useState, useEffect} from "react";
-import axios from "axios";
 
 function App() {
 

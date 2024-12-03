@@ -1,7 +1,6 @@
 import TransactionForm from "../TransactionForm/TransactionForm";
 
-
-function TransactionModal({transactions}){
+function TransactionModal(){
 
  
 
@@ -18,7 +17,7 @@ function TransactionModal({transactions}){
                             <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div className="modal-body">
-                            <TransactionForm transactions={transactions}/>
+                            <TransactionForm />
                         </div>
                     </div>
                 </div>
