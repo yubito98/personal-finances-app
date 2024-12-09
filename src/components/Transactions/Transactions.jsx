@@ -6,13 +6,21 @@ import './Transactions.css'
 
 function Transactions({transactions}){
 
-    const [transactionId, setTransactionId] = useState(0)
+    const [transactionId, setTransactionId] = useState("");
+
+
+    const editTransactionId = (event) =>{
+        setTransactionId(event.target.id);
+        console.log(event.target.id)
+    }
 
     const deleteTransaction = async (event) =>{
         const response = await axios.delete(`http://localhost:8080/transactions/${event.target.id}`);
         const data = response.data;
         console.log(data)
     }
+
+
 
 
     return(
@@ -45,7 +53,7 @@ function Transactions({transactions}){
                         }
                         </td>
                         <td>
-                            <button onClick={() => {setTransactionId(index)}} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTransaction">Edit</button>
+                            <button onClick={editTransactionId} id={index} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTransaction">Edit</button>
                             <span className="btn btn-danger" id={index} onClick={deleteTransaction}>X</span>
                         </td>
                     </tr>

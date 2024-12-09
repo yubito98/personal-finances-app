@@ -2,8 +2,6 @@ import TransactionForm from "../TransactionForm/TransactionForm";
 
 function TransactionModal(){
 
- 
-
     return(
         <div className="mt-5 row">
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -17,7 +15,7 @@ function TransactionModal(){
                             <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div className="modal-body">
-                            <TransactionForm />
+                            <TransactionForm transactionId=""/>
                         </div>
                     </div>
                 </div>

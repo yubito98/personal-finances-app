@@ -21,10 +21,17 @@ function TransactionForm({transactionId}){
     const handleSubmit = async (event) =>{
         event.preventDefault();
         const form = new FormData(event.target);
-        const fromData = Object.fromEntries(form);
-        const response = await axios.post("http://localhost:8080/transactions", fromData)
-        const data = response.data;
-        console.log(data)
+        const formData = Object.fromEntries(form);
+        if(transactionId != ""){
+            const response = await axios.put(`http://localhost:8080/transactions/${transactionId}`, formData)
+            const data = response.data;
+            console.log(data)
+        }else{
+            const response = await axios.post("http://localhost:8080/transactions", formData)
+            const data = response.data;
+            console.log(data)
+        }
+        console.log(transactionId)
     }
 
 

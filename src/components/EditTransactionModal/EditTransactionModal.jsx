@@ -1,7 +1,7 @@
 import TransactionForm from "../TransactionForm/TransactionForm"
 
 
-function EditTransactionModal ({TransactionId}){
+function EditTransactionModal ({transactionId}){
     return(
         <div className="mt-5 row">
         <div className="modal fade" id="editTransaction" >
@@ -12,7 +12,7 @@ function EditTransactionModal ({TransactionId}){
                         <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div className="modal-body">
-                        <TransactionForm transactionId={TransactionId} />
+                        <TransactionForm transactionId={transactionId} />
                     </div>
                 </div>
             </div>
