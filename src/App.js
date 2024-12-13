@@ -6,13 +6,16 @@ import axios from "axios";
 import Transactions from './components/Transactions/Transactions';
 import TransactionModal from './components/TransactionModal/TransactionModal';
 import Filters from './components/Filters/Filters';
+import Header from './components/Header/Header';
 
 function App() {
 
   const [transactions, setTransactions] = useState([])
 
+  const url = 'https://personal-finances-app-backend.vercel.app/api';
+
   const getTransactions = async () =>{
-      const response = await axios.get('http://localhost:8080/transactions');
+      const response = await axios.get(`${url}/transactions`);
       const data = response.data;
       setTransactions(data)
   }
@@ -22,6 +25,8 @@ function App() {
 }, [transactions]);
 
   return (
+    <>
+    <Header/>
     <main >
       <div className='container'>
         <div className='col-12 col-md-8 '>
@@ -31,6 +36,7 @@ function App() {
         </div>
       </div>
     </main>
+    </>
   );
 }
 

@@ -9,21 +9,21 @@ function Transactions({transactions}){
     const [transactionId, setTransactionId] = useState("");
     const [transactionData, setTransactionData] = useState(false);
 
+    const url = 'https://personal-finances-app-backend.vercel.app/api';
+
 
     const editTransactionId = (data) =>{
         setTransactionId(data.index)
         setTransactionData(data)
-        console.log(data.category)
     }
 
     const deleteTransaction = async (event) =>{
-        const response = await axios.delete(`http://localhost:8080/transactions/${event.target.id}`);
+        const response = await axios.delete(`${url}/transactions/${event.target.id}`);
         const data = response.data;
         console.log(data)
     }
 
-
-
+    useEffect(() =>{}, [transactions])
 
     return(
         <>
@@ -58,12 +58,12 @@ function Transactions({transactions}){
                             <button  onClick={() =>{
                                 editTransactionId({index: index + 1, date:item.date, concept:item.concept, category:item.category, type: item.type, value:item.value})
                             }} id={index} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTransaction">Edit</button>
-                            <span className="btn btn-danger" id={index } onClick={deleteTransaction}>X</span>
+                            <div className="btn btn-danger" id={index} onClick={deleteTransaction}>X</div>
                         </td>
                     </tr>
                     
                 ))
-            ): <span>There is no transactions</span>
+            ): <tr><td>There is no transactions</td></tr>
             }
             </tbody>
         </table>

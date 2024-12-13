@@ -5,9 +5,10 @@ function TransactionForm({transactionId, transactionData}){
 
     const [categories, setCategories] = useState([]);
 
+    const url = 'https://personal-finances-app-backend.vercel.app/api';
 
     const getCategories = async (type) =>{
-        const response = await axios.get("http://localhost:8080/categories");
+        const response = await axios.get(`${url}/categories`);
         const data = response.data;
         setCategories(data.filter(category => category.type == type))
     }
@@ -24,13 +25,13 @@ function TransactionForm({transactionId, transactionData}){
         const form = new FormData(event.target);
         const formData = Object.fromEntries(form);
         if(transactionId){
-            const response = await axios.put(`http://localhost:8080/transactions/${transactionId}`, formData)
+            const response = await axios.put(`${url}/transactions/${transactionId}`, formData)
             const data = response.data;
-            console.log(data)
+            console.log("Update", data)
         }else{
-            const response = await axios.post("http://localhost:8080/transactions", formData)
+            const response = await axios.post(`${url}/transactions`, formData)
             const data = response.data;
-            console.log(data)
+            console.log("post", data)
         }
         console.log(transactionId)
     }

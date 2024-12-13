@@ -56,11 +56,11 @@ function Filters({transactions}){
             <h1>Cash Flow</h1>
             <form className="row">
                 <div className="mb-3 col-12 col-md-4">
-                    <label for="exampleInputEmail1" className="form-label">Start Date</label>
+                    <label htmlFor="exampleInputEmail1" className="form-label">Start Date</label>
                     <input type="date" className="form-control" />
                 </div>
                 <div className="mb-3 col-12 col-md-4">
-                    <label for="exampleInputEmail1" className="form-label">End Date</label>
+                    <label htmlFor="exampleInputEmail1" className="form-label">End Date</label>
                     <input type="date" className="form-control" />
                 </div>
                 <div className="mb-3 col-12 col-md-4 d-flex align-items-end"> 
