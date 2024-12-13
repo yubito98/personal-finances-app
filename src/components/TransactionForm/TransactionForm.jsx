@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 
-function TransactionForm({transactionId}){
+function TransactionForm({transactionId, transactionData}){
 
     const [categories, setCategories] = useState([]);
+
 
     const getCategories = async (type) =>{
         const response = await axios.get("http://localhost:8080/categories");
@@ -22,7 +23,7 @@ function TransactionForm({transactionId}){
         event.preventDefault();
         const form = new FormData(event.target);
         const formData = Object.fromEntries(form);
-        if(transactionId != ""){
+        if(transactionId){
             const response = await axios.put(`http://localhost:8080/transactions/${transactionId}`, formData)
             const data = response.data;
             console.log(data)
@@ -34,27 +35,29 @@ function TransactionForm({transactionId}){
         console.log(transactionId)
     }
 
+    useEffect(() =>{
 
+    }, [transactionData])
     
     return(
         <div>
         <form onSubmit={handleSubmit}>
         <div className="mb-3">
-                <input placeholder='date' name="date" type="date" className="form-control" />
+                <input placeholder='date' name="date" type="date" className="form-control" defaultValue={transactionData ? transactionData.date : ""} />
             </div>
             <div className="mb-3">
-                <input placeholder='Concept' name="concept" type="text" className="form-control" />
+                <input placeholder='Concept' name="concept" type="text" className="form-control" defaultValue={transactionData ? transactionData.concept : ""} />
             </div>
             <div className="mb-3">
-                <select onChange={selectType} name="type" className="form-select">
-                    <option selected value="">Type</option>
+                <select onChange={selectType} name="type" className="form-select" defaultValue={transactionData ? transactionData.type : ""}>
+                    <option value="">Type</option>
                     <option value="Expense">Expense</option>
                     <option value="Income">Income</option>
                 </select>
             </div>
             <div className="mb-3">
-                <select name="category" className="form-select">
-                    <option selected value="">Category</option>
+                <select name="category" className="form-select" defaultValue={transactionData ? transactionData.category : ""}>
+                    <option value="">Category</option>
                     { categories.map((category, index) =>(
                         <option key={index} value={category.name}>{category.name}</option>
                     ))}
@@ -62,7 +65,7 @@ function TransactionForm({transactionId}){
                 </select>
             </div>
             <div className="mb-3">
-                <input placeholder='Value' name="value" type="number" className="form-control" />
+                <input placeholder='Value' name="value" type="number" className="form-control" defaultValue={transactionData ? transactionData.value : ""} />
             </div>
             <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Submit</button>
         </form>

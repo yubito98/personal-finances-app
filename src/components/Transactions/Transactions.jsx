@@ -7,11 +7,13 @@ import './Transactions.css'
 function Transactions({transactions}){
 
     const [transactionId, setTransactionId] = useState("");
+    const [transactionData, setTransactionData] = useState(false);
 
 
-    const editTransactionId = (event) =>{
-        setTransactionId(event.target.id);
-        console.log(event.target.id)
+    const editTransactionId = (data) =>{
+        setTransactionId(data.index)
+        setTransactionData(data)
+        console.log(data.category)
     }
 
     const deleteTransaction = async (event) =>{
@@ -53,8 +55,10 @@ function Transactions({transactions}){
                         }
                         </td>
                         <td>
-                            <button onClick={editTransactionId} id={index} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTransaction">Edit</button>
-                            <span className="btn btn-danger" id={index} onClick={deleteTransaction}>X</span>
+                            <button  onClick={() =>{
+                                editTransactionId({index: index + 1, date:item.date, concept:item.concept, category:item.category, type: item.type, value:item.value})
+                            }} id={index} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTransaction">Edit</button>
+                            <span className="btn btn-danger" id={index } onClick={deleteTransaction}>X</span>
                         </td>
                     </tr>
                     
@@ -63,7 +67,7 @@ function Transactions({transactions}){
             }
             </tbody>
         </table>
-        <EditTransactionModal transactionId={transactionId}/>
+        <EditTransactionModal transactionData={transactionData} transactionId={transactionId}/>
         </>
     )
 }
