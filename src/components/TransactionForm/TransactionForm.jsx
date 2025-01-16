@@ -5,7 +5,7 @@ function TransactionForm({transactionId, transactionData}){
 
     const [categories, setCategories] = useState([]);
 
-    const url = 'https://personal-finances-app-backend.vercel.app/api';
+    const url = 'http://localhost:8080/api';
 
     const getCategories = async (type) =>{
         const response = await axios.get(`${url}/categories`);

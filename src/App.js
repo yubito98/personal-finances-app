@@ -12,7 +12,7 @@ function App() {
 
   const [transactions, setTransactions] = useState([])
 
-  const url = 'https://personal-finances-app-backend.vercel.app/api';
+  const url = 'http://localhost:8080/api';
 
   const getTransactions = async () =>{
       const response = await axios.get(`${url}/transactions`);

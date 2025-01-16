@@ -9,7 +9,7 @@ function Transactions({transactions}){
     const [transactionId, setTransactionId] = useState("");
     const [transactionData, setTransactionData] = useState(false);
 
-    const url = 'https://personal-finances-app-backend.vercel.app/api';
+    const url = 'http://localhost:8080/api';
 
 
     const editTransactionId = (data) =>{

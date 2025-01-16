@@ -9,45 +9,49 @@ function Filters({transactions}){
 
 
     useEffect(() =>{
-        let balance = transactions.reduce((accumulator, currentValue) =>{
-            return accumulator + parseFloat(currentValue.value)
-        }, 0)
 
-        let formatBalance = new Intl.NumberFormat('es-CO', {
-            style: 'currency',
-            currency: 'COP',
-            maximumFractionDigits: 0
-        }).format(balance);
-
-        let income = transactions.reduce((acc, item) =>{
-            if(item.value >= 0){
-                return acc + parseFloat(item.value);
-            }
-            return acc;
-        },0)
-
-        let formatIncome = new Intl.NumberFormat('es-CO', {
-            style: 'currency',
-            currency: 'COP',
-            maximumFractionDigits: 0
-        }).format(income);
-
-        let expense = transactions.reduce((acc, item) =>{
-            if(item.value < 0){
-                return acc + parseFloat(item.value);
-            }
-            return acc
-        },0)
-
-        let formatExpense = new Intl.NumberFormat('es-CO', {
-            style: 'currency',
-            currency: 'COP',
-            maximumFractionDigits: 0
-        }).format(expense);
-
-        setTotalBalance(formatBalance);
-        setTotalIncome(formatIncome);
-        setTotalExpense(formatExpense);
+        
+            let balance = transactions.reduce((accumulator, currentValue) =>{
+                return accumulator + parseFloat(currentValue.value)
+            }, 0)
+    
+            let formatBalance = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                maximumFractionDigits: 0
+            }).format(balance);
+    
+            let income = transactions.reduce((acc, item) =>{
+                if(item.value >= 0){
+                    return acc + parseFloat(item.value);
+                }
+                return acc;
+            },0)
+    
+            let formatIncome = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                maximumFractionDigits: 0
+            }).format(income);
+    
+            let expense = transactions.reduce((acc, item) =>{
+                if(item.value < 0){
+                    return acc + parseFloat(item.value);
+                }
+                return acc
+            },0)
+    
+            let formatExpense = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                maximumFractionDigits: 0
+            }).format(expense);
+    
+            setTotalBalance(formatBalance);
+            setTotalIncome(formatIncome);
+            setTotalExpense(formatExpense);
+        
+        
     },  [transactions])
 
 
