@@ -51,9 +51,9 @@ function TransactionForm({transactionId, transactionData}){
             </div>
             <div className="mb-3">
                 <select onChange={selectType} name="type" className="form-select" defaultValue={transactionData ? transactionData.type : ""}>
-                    <option value="">Type</option>
-                    <option value="Expense">Expense</option>
-                    <option value="Income">Income</option>
+                    <option value="">Tipo</option>
+                    <option value="Gasto">Gasto</option>
+                    <option value="Ingreso">Ingreso</option>
                 </select>
             </div>
             <div className="mb-3">
