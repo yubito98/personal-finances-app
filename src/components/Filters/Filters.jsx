@@ -56,8 +56,8 @@ function Filters({transactions}){
 
 
     return(
-        <div>
-            <h1>Cash Flow</h1>
+        <div className="pt-4">
+            <h1>Flujo de caja</h1>
             <form className="row">
                 <div className="mb-3 col-12 col-md-4">
                     <label htmlFor="exampleInputEmail1" className="form-label">Start Date</label>

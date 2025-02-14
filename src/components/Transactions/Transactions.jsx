@@ -30,20 +30,27 @@ function Transactions({transactions}){
         <table className="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">Concept</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Value</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Concepto</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Valor</th>
                 </tr>
             </thead>
             <tbody>
             {transactions.length > 0 ? (
                 transactions.map((item, index) =>(
                     <tr key={index}>
-                        <td>{item.date}</td>
+                        <td style={{textAlign:'right'}} >{(() =>{
+                            let date = new Date(item.date);
+                            let day = date.getDate();
+                            let month = date.getMonth() + 1;
+                            let year = date.getFullYear()
+                            return `${day}/${month}/${year}`
+                        })()
+                        }</td>
                         <td>{item.concept}</td>
-                        <td>{item.category}</td>
+                        <td>{item.category.name}</td>
                         <td className={item.type}>{item.type}</td>
                         <td>
                         {
@@ -58,7 +65,7 @@ function Transactions({transactions}){
                             <button  onClick={() =>{
                                 editTransactionId({index: index + 1, date:item.date, concept:item.concept, category:item.category, type: item.type, value:item.value})
                             }} id={index} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTransaction">Edit</button>
-                            <div className="btn btn-danger" id={index} onClick={deleteTransaction}>X</div>
+                            <div className="btn btn-danger" id={item.id} onClick={deleteTransaction}>X</div>
                         </td>
                     </tr>
                     
