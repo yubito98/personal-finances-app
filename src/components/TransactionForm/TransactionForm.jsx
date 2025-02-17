@@ -33,7 +33,6 @@ function TransactionForm({transactionId, transactionData}){
             const data = response.data;
             console.log("post", data)
         }
-        console.log(transactionId)
     }
 
     useEffect(() =>{
@@ -57,7 +56,7 @@ function TransactionForm({transactionId, transactionData}){
                 </select>
             </div>
             <div className="mb-3">
-                <select name="category" className="form-select" defaultValue={transactionData ? transactionData.category : ""}>
+                <select name="category_id" className="form-select" defaultValue={transactionData ? transactionData.category : ""}>
                     <option value="">Category</option>
                     { categories.map((category, index) =>(
                         <option key={index}  value={category.id}>{category.name}</option>

@@ -13,7 +13,7 @@ function Transactions({transactions}){
 
 
     const editTransactionId = (data) =>{
-        setTransactionId(data.index)
+        setTransactionId(data.id)
         setTransactionData(data)
     }
 
@@ -63,8 +63,14 @@ function Transactions({transactions}){
                         </td>
                         <td>
                             <button  onClick={() =>{
-                                editTransactionId({index: index + 1, date:item.date, concept:item.concept, category:item.category, type: item.type, value:item.value})
-                            }} id={index} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTransaction">Edit</button>
+                            editTransactionId({id: item.id, date:item.date, concept:item.concept, category_id:item.category.name, type: item.type, value:item.value})
+                            }} 
+                            type="button" 
+                            className="btn btn-primary" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#editTransaction">
+                            Edit
+                            </button>
                             <div className="btn btn-danger" id={item.id} onClick={deleteTransaction}>X</div>
                         </td>
                     </tr>
