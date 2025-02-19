@@ -7,6 +7,7 @@ import Transactions from './components/Transactions/Transactions';
 import TransactionModal from './components/TransactionModal/TransactionModal';
 import Filters from './components/Filters/Filters';
 import Header from './components/Header/Header';
+import TotalCategories from './components/TotalCategories';
 
 function App() {
 
@@ -29,11 +30,17 @@ function App() {
     <Header/>
     <main >
       <div className='container'>
-        <div className='col-12 col-md-8 '>
-          <Filters transactions={transactions} />
-          <TransactionModal transactions={transactions}/>
-          <Transactions transactions={transactions}/>
+        <div className='row'>
+          <div className='col-12 col-md-8 '>
+            <Filters transactions={transactions} />
+            <TransactionModal transactions={transactions}/>
+            <Transactions transactions={transactions}/>
+          </div>
+          <div className='col-12 col-md-4' >
+            <TotalCategories transactions={transactions} />
+          </div>
         </div>
+
       </div>
     </main>
     </>
