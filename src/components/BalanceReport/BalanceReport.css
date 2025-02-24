@@ -1,0 +1,31 @@
+.balance-report-item{
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius:10px;
+    display:flex;
+    flex-direction: column;
+}
+
+.balance-title{
+    color: rgb(158, 158, 158);
+    text-align: right;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.balance-value{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.balance-value.balance{
+color: rgb(66, 128, 243);
+}
+
+.balance-value.income{
+    color: rgb(96, 194, 96);
+}
+
+.balance-value.expense{
+    color: rgb(255, 107, 107);
+}

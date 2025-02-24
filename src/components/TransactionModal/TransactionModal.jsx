@@ -1,11 +1,12 @@
 import TransactionForm from "../TransactionForm/TransactionForm";
+import './TransactionModal.css'
 
 function TransactionModal(){
 
     return(
-        <div className="mt-5 row">
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Add Transaction
+        <>
+            <button type="button" className="btn btn-primary transaction-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Transaction
             </button>
             <div className="modal fade" id="exampleModal" >
                 <div className="modal-dialog">
@@ -20,7 +21,8 @@ function TransactionModal(){
                     </div>
                 </div>
             </div>
-        </div>
+
+        </>
 
     )
 }

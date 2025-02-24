@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import './CategoriesReport.css'
 
-function TotalCategories({ transactions }) {
+function CategoriesReport({ transactions }) {
     const [incomeCategories, setIncomeCategories] = useState({});
     const [expenseCategories, setExpenseCategories] = useState({});
 
@@ -34,14 +35,14 @@ function TotalCategories({ transactions }) {
 
 
     return (
-        <div className="pt-4">
-            <h3>Resumen de ingresos</h3>
+        <div className="categories-report">
+            <h4 className="category-report-title">Resumen de ingresos</h4>
             {Object.keys(incomeCategories).map(categoryName => (
                 <div key={categoryName}>
                     <p>{categoryName}: {incomeCategories[categoryName].amount.reduce((a, b) => a + b, 0)}</p>
                 </div>
             ))}
-            <h3>Resumen de gastos</h3>
+            <h4 className="category-report-title">Resumen de gastos</h4>
             {Object.keys(expenseCategories).map(categoryName => (
                 <div key={categoryName}>
                     <p>{categoryName}: {expenseCategories[categoryName].amount.reduce((a, b) => a + b, 0)}</p>
@@ -51,4 +52,4 @@ function TotalCategories({ transactions }) {
     );
 }
 
-export default TotalCategories;
+export default CategoriesReport;

@@ -1,0 +1,10 @@
+.categories-report{
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius:8px;
+}
+
+.category-report-title{
+    color: rgb(158, 158, 158);
+    font-weight: 400;
+}

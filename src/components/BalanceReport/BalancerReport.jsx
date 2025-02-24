@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
+import './BalanceReport.css'
 
-
-function Filters({transactions}){
+function BalanceReport({transactions}){
 
     const [totalBalance, setTotalBalance ] = useState(0);
     const [totalIncome, setTotalIncome ] = useState(0);
@@ -57,33 +57,24 @@ function Filters({transactions}){
 
     return(
         <div className="pt-4">
-            <h1>Flujo de caja</h1>
-            <form className="row">
-                <div className="mb-3 col-12 col-md-4">
-                    <label htmlFor="exampleInputEmail1" className="form-label">Start Date</label>
-                    <input type="date" className="form-control" />
-                </div>
-                <div className="mb-3 col-12 col-md-4">
-                    <label htmlFor="exampleInputEmail1" className="form-label">End Date</label>
-                    <input type="date" className="form-control" />
-                </div>
-                <div className="mb-3 col-12 col-md-4 d-flex align-items-end"> 
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </div>
-                
-            </form>
             <div className="row mb-3">
                 <div className="col-12 col-md-4">
-                    <span className="bold"><b>Balance:</b></span>
-                    <span className="badge text-bg-primary mx-2">{totalBalance}</span>
+                    <div className="balance-report-item">
+                        <h4 className="balance-title">Balance</h4>
+                        <span className="balance-value balance">{totalBalance}</span>
+                    </div>
                 </div>
                 <div className="col-12 col-md-4">
-                    <span><b>Income:</b></span>
-                    <span className="badge text-bg-success mx-2">{totalIncome}</span>
+                    <div className="balance-report-item">
+                        <h4 className="balance-title">Income</h4>
+                        <span className="balance-value income">{totalIncome}</span>
+                    </div>
                 </div>
                 <div className="col-12 col-md-4">
-                    <span><b>Expense:</b></span>
-                    <span className="badge text-bg-danger mx-2">{totalExpense}</span>
+                    <div className="balance-report-item">
+                    <h4 className="balance-title">Expense</h4>
+                        <span className="balance-value expense">{totalExpense}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,4 +83,4 @@ function Filters({transactions}){
 
 
 
-export default Filters
+export default BalanceReport
