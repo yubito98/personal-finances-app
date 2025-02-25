@@ -8,31 +8,41 @@ import TransactionModal from './components/TransactionModal/TransactionModal';
 import BalanceReport from './components/BalanceReport/BalancerReport';
 import Header from './components/Header/Header';
 import CategoriesReport from './components/CategoriesReport/CategoriesReport';
+import DatePicker from './components/DatePicker/DatePicker';
 
 function App() {
 
-  const [transactions, setTransactions] = useState([])
+  const [transactions, setTransactions] = useState([]);
+  const currentDate = new Date().toISOString().split('T')[0];
+  const [dateFilter, setDateFilter] = useState({startDate:currentDate, endDate:currentDate});
 
   const url = 'http://localhost:8080/api';
 
+  const handleDateFilter = (filterData)=>{
+    setDateFilter(filterData)
+  }
+
   const getTransactions = async () =>{
-      const response = await axios.get(`${url}/transactions`);
+      const response = await axios.get(`${url}/transactions`,{
+        params:{startDate: dateFilter.startDate, endDate:dateFilter.endDate}
+      });
       const data = response.data;
+      console.log(data)
       setTransactions(data)
   }
 
-  useEffect(() => {
+ useEffect(() => {
     getTransactions();
-}, [transactions]);
+  }, [dateFilter]);
 
   return (
     <>
     <Header/>
     <main >
       <div className='container'>
-        <div className='row pt-4 align-items-center'>
-            Date Range Picker
-            <TransactionModal transactions={transactions}/>
+        <div className='pt-4 d-flex align-items-end'>
+            <DatePicker datePickerData={handleDateFilter} />
+            <TransactionModal />
         </div>
         <div className='row'>
           <BalanceReport transactions={transactions} />

@@ -5,8 +5,8 @@ function TransactionModal(){
 
     return(
         <>
-            <button type="button" className="btn btn-primary transaction-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Add Transaction
+            <button type="button" className="btn btn-primary transaction-button mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Agregar Transacción
             </button>
             <div className="modal fade" id="exampleModal" >
                 <div className="modal-dialog">
