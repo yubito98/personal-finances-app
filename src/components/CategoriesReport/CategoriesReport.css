@@ -4,7 +4,41 @@
     border-radius:8px;
 }
 
+.categories-report-container{
+    margin-bottom:20px;
+}
+
 .category-report-title{
     color: rgb(158, 158, 158);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.category-report-item{
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius:10px;
+    display:flex;
+    flex-direction: column;
+    margin-bottom:5px;
+}
+
+.category-report-item-name{
+    text-align:right;
+    margin-bottom:6px;
     font-weight: 400;
+}
+
+.category-report-item-value{
+    font-weight: 700;
+    font-size: 18px;
+    color: #60c260;
+}
+
+.category-report-item-value.income{
+    color: #60c260;
+}
+
+.category-report-item-value.expense{
+    color:#ff6b6b;
 }

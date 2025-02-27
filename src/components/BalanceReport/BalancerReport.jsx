@@ -60,19 +60,19 @@ function BalanceReport({transactions}){
             <div className="row mb-3">
                 <div className="col-12 col-md-4">
                     <div className="balance-report-item">
-                        <h4 className="balance-title">Balance</h4>
+                        <h4 className="balance-title">Saldo</h4>
                         <span className="balance-value balance">{totalBalance}</span>
                     </div>
                 </div>
                 <div className="col-12 col-md-4">
                     <div className="balance-report-item">
-                        <h4 className="balance-title">Income</h4>
+                        <h4 className="balance-title">Ingresos</h4>
                         <span className="balance-value income">{totalIncome}</span>
                     </div>
                 </div>
                 <div className="col-12 col-md-4">
                     <div className="balance-report-item">
-                    <h4 className="balance-title">Expense</h4>
+                    <h4 className="balance-title">Gastos</h4>
                         <span className="balance-value expense">{totalExpense}</span>
                     </div>
                 </div>

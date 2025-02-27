@@ -36,18 +36,24 @@ function CategoriesReport({ transactions }) {
 
     return (
         <div className="categories-report">
-            <h4 className="category-report-title">Resumen de ingresos</h4>
-            {Object.keys(incomeCategories).map(categoryName => (
-                <div key={categoryName}>
-                    <p>{categoryName}: {incomeCategories[categoryName].amount.reduce((a, b) => a + b, 0)}</p>
-                </div>
-            ))}
-            <h4 className="category-report-title">Resumen de gastos</h4>
-            {Object.keys(expenseCategories).map(categoryName => (
-                <div key={categoryName}>
-                    <p>{categoryName}: {expenseCategories[categoryName].amount.reduce((a, b) => a + b, 0)}</p>
-                </div>
-            ))}
+            <div className="categories-report-container">
+                <h4 className="category-report-title">Categorias de ingresos</h4>
+                {Object.keys(incomeCategories).map(categoryName => (
+                    <div className="category-report-item" key={categoryName}>
+                        <h6 className="category-report-item-name">{categoryName}</h6>
+                        <span className="category-report-item-value income">{incomeCategories[categoryName].amount.reduce((a, b) => a + b, 0)}</span>
+                    </div>
+                ))}
+            </div>
+            <div className="categories-report-container">
+                <h4 className="category-report-title">Categorias de gastos</h4>
+                {Object.keys(expenseCategories).map(categoryName => (
+                    <div className="category-report-item" key={categoryName}>
+                        <h6 className="category-report-item-name">{categoryName}</h6>
+                        <span className="category-report-item-value expense">{expenseCategories[categoryName].amount.reduce((a, b) => a + b, 0)}</span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

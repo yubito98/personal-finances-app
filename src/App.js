@@ -13,8 +13,12 @@ import DatePicker from './components/DatePicker/DatePicker';
 function App() {
 
   const [transactions, setTransactions] = useState([]);
-  const currentDate = new Date().toISOString().split('T')[0];
-  const [dateFilter, setDateFilter] = useState({startDate:currentDate, endDate:currentDate});
+  const today = new Date();
+  const currentDate = today.toISOString().split('T')[0];
+  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1)
+    .toISOString()
+    .split('T')[0];
+  const [dateFilter, setDateFilter] = useState({startDate:firstDayOfMonth, endDate:currentDate});
 
   const url = 'http://localhost:8080/api';
 
@@ -41,7 +45,7 @@ function App() {
     <main >
       <div className='container'>
         <div className='pt-4 d-flex align-items-end'>
-            <DatePicker datePickerData={handleDateFilter} />
+            <DatePicker datePickerData={handleDateFilter} dateFilter={dateFilter}/>
             <TransactionModal />
         </div>
         <div className='row'>

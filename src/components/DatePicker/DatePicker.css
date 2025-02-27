@@ -5,17 +5,38 @@
 
 .date-picker-options{
     display:flex;
-    align-items:center;
+    align-items:flex-end;
     justify-content: flex-start;
     gap:10px;
 }
 
 .date-picker-form{
     display:flex;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .date-picker-form input{
     height: 38px;
     margin-right:10px;
 }
+
+.date-picker-form-item{
+    position:relative;
+  }
+  
+  .date-picker-form-item input{
+    position: absolute;
+    top:0;
+    left:0;
+    display:none;
+  }
+  
+  .date-picker-form-item-placeholder{
+    background-color: rgb(94, 177, 255);
+    padding:5px 10px;
+    border-radius:10px;
+    color:white;
+    font-weight:600;
+    margin-right:5px;
+    cursor:pointer;
+  }
