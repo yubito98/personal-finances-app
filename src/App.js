@@ -35,8 +35,13 @@ function App() {
       setTransactions(data)
   }
 
+  function refreshTransactions(){
+    getTransactions()
+  }
+  
+
  useEffect(() => {
-    getTransactions();
+  getTransactions()
   }, [dateFilter]);
 
   return (
@@ -46,14 +51,14 @@ function App() {
       <div className='container'>
         <div className='pt-4 d-flex align-items-end'>
             <DatePicker datePickerData={handleDateFilter} dateFilter={dateFilter}/>
-            <TransactionModal />
+            <TransactionModal refreshTransactions={refreshTransactions} />
         </div>
         <div className='row'>
           <BalanceReport transactions={transactions} />
         </div>
         <div className='row'>
           <div className='col-12 col-md-8 '>
-            <Transactions transactions={transactions}/>
+            <Transactions transactions={transactions} refreshTransactions={refreshTransactions}/>
           </div>
           <div className='col-12 col-md-4' >
             <CategoriesReport transactions={transactions} />

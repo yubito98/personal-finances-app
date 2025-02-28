@@ -4,7 +4,7 @@ import EditTransactionModal from "../EditTransactionModal/EditTransactionModal";
 import './Transactions.css'
 
 
-function Transactions({transactions}){
+function Transactions({transactions, refreshTransactions}){
 
     const [transactionId, setTransactionId] = useState("");
     const [transactionData, setTransactionData] = useState(false);
@@ -21,10 +21,10 @@ function Transactions({transactions}){
         const response = await axios.delete(`${url}/transactions/${event.target.id}`);
         const data = response.data;
         console.log(data)
+        refreshTransactions()
     }
 
-    useEffect(() =>{}, [transactions])
-
+ 
     return(
         <>
         <table className="table table-striped">
@@ -80,7 +80,7 @@ function Transactions({transactions}){
             }
             </tbody>
         </table>
-        <EditTransactionModal transactionData={transactionData} transactionId={transactionId}/>
+        <EditTransactionModal refreshTransactions={refreshTransactions} transactionData={transactionData} transactionId={transactionId}/>
         </>
     )
 }

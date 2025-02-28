@@ -1,7 +1,7 @@
 import TransactionForm from "../TransactionForm/TransactionForm";
 import './TransactionModal.css'
 
-function TransactionModal(){
+function TransactionModal({refreshTransactions}){
 
     return(
         <>
@@ -12,11 +12,11 @@ function TransactionModal(){
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" >Add Your Transaction</h1>
+                            <h1 className="modal-title fs-5" >Agregar transaccion</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div className="modal-body">
-                            <TransactionForm transactionId=""/>
+                            <TransactionForm refreshTransactions={refreshTransactions} transactionId=""/>
                         </div>
                     </div>
                 </div>

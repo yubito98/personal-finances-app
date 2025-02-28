@@ -9,8 +9,6 @@ function BalanceReport({transactions}){
 
 
     useEffect(() =>{
-
-        
             let balance = transactions.reduce((accumulator, currentValue) =>{
                 return accumulator + parseFloat(currentValue.value)
             }, 0)

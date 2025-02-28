@@ -15,10 +15,6 @@
     align-items: flex-end;
 }
 
-.date-picker-form input{
-    height: 38px;
-    margin-right:10px;
-}
 
 .date-picker-form-item{
     position:relative;
@@ -26,9 +22,11 @@
   
   .date-picker-form-item input{
     position: absolute;
-    top:0;
+    bottom:0;
     left:0;
-    display:none;
+    width:0px;
+    height: 0px;
+    border:0;
   }
   
   .date-picker-form-item-placeholder{
@@ -39,4 +37,5 @@
     font-weight:600;
     margin-right:5px;
     cursor:pointer;
+    min-height:37.6px;
   }

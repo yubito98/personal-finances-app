@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 
-function TransactionForm({transactionId, transactionData}){
+function TransactionForm({transactionId, transactionData, refreshTransactions}){
 
     const [categories, setCategories] = useState([]);
 
@@ -33,11 +33,10 @@ function TransactionForm({transactionId, transactionData}){
             const data = response.data;
             console.log("post", data)
         }
+        refreshTransactions()
     }
 
-    useEffect(() =>{
 
-    }, [transactionData])
     
     return(
         <div>
@@ -67,7 +66,7 @@ function TransactionForm({transactionId, transactionData}){
             <div className="mb-3">
                 <input placeholder='Value' name="value" type="number" className="form-control" defaultValue={transactionData ? transactionData.value : ""} />
             </div>
-            <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+            <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Enviar</button>
         </form>
         </div>
     )
